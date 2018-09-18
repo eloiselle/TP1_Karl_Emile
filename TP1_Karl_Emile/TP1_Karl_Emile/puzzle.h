@@ -1,9 +1,10 @@
-/*Nom:Karl Boutin
-Programme:puzzle.h
-Date:2018-09-15
-But du programme:Classe permetant de jouer une partie du jeu camouflage.
-Elle initialise le jeu pour ensuite trouver une solution a la map
-choisie
+/*
+Nom:		Karl Boutin
+Programme:	puzzle.h
+Date:		2018-09-15
+But:		Classe permetant de jouer une partie du jeu camouflage.
+			Elle initialise le jeu pour ensuite trouver une solution
+			a la carte choisie.
 */
 
 #pragma once
@@ -20,6 +21,6 @@ private:
 public:
 	void	init(ifstream &entree, string nomNoMap);	//Initialiser le jeu
 	void	print(ostream &os)const;					//Affiche les messages du jeu
-	void	solve();
+	void	solve();									//Place les bonnes pièces aux bons endroits dans la carte
 };
 ostream &operator<<(ostream &os, const Puzzle &game);

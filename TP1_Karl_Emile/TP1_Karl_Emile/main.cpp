@@ -1,19 +1,23 @@
-/*Nom:Karl Boutin et Émile Loiselle
-Programme:main.cpp
-Date:2018-09-09
-But du programme: Le jeu camouflage dans lequel on manipule une map
-et des pièces afin de trouver la solution du casse-tête à l'aide d'un
-algorithme.
+/*
+Nom:		Karl Boutin et Émile Loiselle
+Programme:	main.cpp
+Date:		2018-09-09
+But:		Le jeu camouflage dans lequel on manipule une map
+			et des pièces afin de trouver la solution du casse-tête
+			à l'aide d'un algorithme.
 */
 
 #include"puzzle.h"
 
 using namespace std;
 
+//Méthodes
 string ouvrirFichiers(ifstream &entree, ofstream &sortie);
 
 void main()
 {
+	setlocale(LC_CTYPE, "fra");
+
 	Puzzle		game;		//Une partie du jeu camouflage
 
 	ifstream	entree;		//Fichier dans lequel on lit la map
@@ -23,14 +27,18 @@ void main()
 	//Ouvrir le fichier s'il existe
 	nomNoMap = ouvrirFichiers(entree, sortie);
 
-	game.init(entree, nomNoMap); //Initialiser le jeu
+	//Initialiser le jeu
+	game.init(entree, nomNoMap);
 
+	//Résoudre la solution
 	game.solve();
 
-	cout << game;	//Afficher le message du jeu
+	//Afficher le résultat du jeu
+	cout << game;
 	sortie << game;
 
-	entree.close();//Fermer les fichiers
+	//Fermer les fichiers
+	entree.close();
 	sortie.close();
 
 	system("pause");

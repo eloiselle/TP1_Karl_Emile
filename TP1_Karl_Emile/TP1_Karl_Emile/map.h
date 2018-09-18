@@ -1,10 +1,12 @@
-/*Nom:Karl Boutin
-Programme:main.cpp
-Date:2018-09-09
-But du programme:La map du jeu camouflage qu'on obtient à l'aide d'un fichier
-dans lequel on lit pour obtenir son nombre de ligne, son nombre de colonne
-et obtenir les valeurs de chaques cases de la map. La classe permet d'afficher
-la map, d'obtenir des valeurs pour la map ou d'envoyer ses valeurs.
+/*
+Nom:		Karl Boutin
+Programme:	main.cpp
+Date:		2018-09-09
+But:		La map du jeu camouflage qu'on obtient à l'aide d'un fichier
+			dans lequel on lit pour obtenir son nombre de ligne,
+			son nombre de colonne et obtenir les valeurs de chaques
+			cases de la map. La classe permet d'afficher
+			la map, d'obtenir des valeurs pour la map ou d'envoyer ses valeurs.
 */
 
 #pragma once

@@ -1,0 +1,14 @@
+init pieces
+init map
+
+Pour 6 pièces (noPiece)
+	Pour 4 Lignes
+		Pour 4 colones
+			Pour 4 rotations
+				Si noPiece = 6
+					return true
+				Si match(noPiece, colones)
+					placePiece(noPiece, lignes, colones)
+				Si (!return sollutionner(noPiece+1))
+					retirerPiece(noPiece, lignes, colones)
+return false;

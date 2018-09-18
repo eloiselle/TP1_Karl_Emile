@@ -115,6 +115,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="casePiece.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="map.cpp" />
+    <ClCompile Include="puzzle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="casePiece.h" />
+    <ClInclude Include="map.h" />
+    <ClInclude Include="puzzle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mapExpert25.txt" />
+    <Text Include="mapExpert26.txt" />
+    <Text Include="mapExpert27.txt" />
+    <Text Include="mapExpert35.txt" />
+    <Text Include="mapJunior17.txt" />
+    <Text Include="mapJunior18.txt" />
+    <Text Include="mapMaster37.txt" />
+    <Text Include="mapMaster38.txt" />
+    <Text Include="mapMaster48.txt" />
+    <Text Include="solutionexpert25.txt" />
+    <Text Include="solutionExpert26.txt" />
+    <Text Include="solutionExpert27.txt" />
+    <Text Include="solutionExpert35.txt" />
+    <Text Include="solutionJunior17.txt" />
+    <Text Include="solutionJunior18.txt" />
+    <Text Include="solutionmaster37.txt" />
+    <Text Include="solutionMaster38.txt" />
+    <Text Include="solutionMaster48.txt" />
+    <Text Include="Algo_Puzzle.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

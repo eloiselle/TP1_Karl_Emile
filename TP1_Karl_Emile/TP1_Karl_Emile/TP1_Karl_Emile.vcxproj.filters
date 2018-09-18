@@ -13,5 +13,92 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Maps">
+      <UniqueIdentifier>{b1a57315-3f52-4145-8065-a92150de24fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="casePiece.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="puzzle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="casePiece.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="puzzle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mapExpert25.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapExpert26.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapExpert27.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapExpert35.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapJunior17.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapJunior18.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapMaster37.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapMaster38.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="mapMaster48.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionexpert25.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionExpert26.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionExpert27.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionExpert35.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionJunior17.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionJunior18.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionmaster37.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionMaster38.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="solutionMaster48.txt">
+      <Filter>Resource Files\Maps</Filter>
+    </Text>
+    <Text Include="Algo_Puzzle.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

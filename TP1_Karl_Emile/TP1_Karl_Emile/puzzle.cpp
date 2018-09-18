@@ -25,6 +25,10 @@ void Puzzle::print(ostream &os)const
 	os << _solution << endl;
 }
 
+void Puzzle::solve()
+{
+}
+
 ostream &operator<<(ostream &os, const Puzzle &game)
 {
 	game.print(os);

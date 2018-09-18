@@ -4,9 +4,9 @@ Auteur:		Émile Loiselle
 Date:		12 septembre
 Programme:	casePiece.h
 But:		Permet de manipuler des pièces 3 cases et 2 cases avec des
-opérations de base comme faire une rotation des pieces,
-afficher les pieces ou meme modifier ou obtenir les
-valeurs de differentes cases
+			opérations de base, comme faire une rotation des pieces,
+			afficher les pieces, modifier et obtenir les
+			valeurs de différentes cases.
 ===============================================================
 */
 
