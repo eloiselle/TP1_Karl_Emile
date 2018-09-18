@@ -1,0 +1,86 @@
+
+Pour la map suivante : 
+B B B B 
+E E E E 
+E E B B 
+B B B B 
+
+Voici les differentes pieces du jeu camouflage et leurs rotations : 
+U:
+U  UP 
+UO    
+
+UO U  
+   UP 
+
+   UO 
+UP U  
+
+UP    
+U  UO 
+
+V:
+VP V  
+VO    
+
+VO VP 
+   V  
+
+   VO 
+V  VP 
+
+V     
+VP VO 
+
+W:
+W  WO 
+WP    
+
+WP W  
+   WO 
+
+   WP 
+WO W  
+
+WO    
+W  WP 
+
+X:
+XP XP 
+      
+
+XP    
+XP    
+
+XP XP 
+      
+
+XP    
+XP    
+
+Y:
+YP YO 
+      
+
+YO    
+YP    
+
+YO YP 
+      
+
+YP    
+YO    
+
+Z:
+Z     
+ZO Z  
+
+ZO Z  
+Z     
+
+Z  ZO 
+   Z  
+
+   Z  
+Z  ZO 
+
