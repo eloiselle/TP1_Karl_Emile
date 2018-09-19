@@ -15,14 +15,14 @@ class puzzle
 {
 private:
 	map			_carte;			//La carte du jeu
-	map			_solution;		//La solution de la carte
+	string		_solution[4][4];		//La solution de la carte
 	piece		*_pieces[6];	//Contient les pièces du jeu
 	bool		_succes;		//Détermine si une solution a été trouvé
 
 public:
 	void	init(ifstream &entree, string nomNoMap);	//Initialiser le jeu
-	void	play();										//Joue une partie de camouflage
-	bool	solve(int);									//Résoud une carte de camouflage
+	void	play(ostream&);										//Joue une partie de camouflage
+	bool	solve(int, ostream&);									//Résoud une carte de camouflage
 	bool	match(int, int, int);						//Compare une pièce à une case
 	void	placePiece(int, int, int);
 	void	retirerPiece(int, int, int);

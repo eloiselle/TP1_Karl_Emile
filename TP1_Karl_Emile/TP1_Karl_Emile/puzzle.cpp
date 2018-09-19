@@ -13,19 +13,21 @@ void puzzle::init(ifstream &entree, string nomNoMap)
 	//Initialiser la carte
 	_carte.init(entree, nomNoMap);
 
-	_solution.setColonne(_carte.getColonne());
-	_solution.setLigne(_carte.getLigne());
-}
-
-void puzzle::play()
-{
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		_succes = solve(i);
+		for (int j = 0; j < 4; j++)
+		{
+			_solution[i][j] = " ";
+		}
 	}
 }
 
-bool puzzle::solve(int noPiece)
+void puzzle::play(ostream& os)
+{
+	_succes = solve(0, os);
+}
+
+bool puzzle::solve(int noPiece, ostream& os)
 {
 	//Chaques lignes
 	for (int ligne = 0; ligne < _carte.getLigne(); ligne++)
@@ -40,14 +42,18 @@ bool puzzle::solve(int noPiece)
 				if (noPiece == 6)
 					return true;
 				//Si la pièce entre dans l'emplacement
-				if (match(noPiece, colonne, ligne))
+				if (match(noPiece, ligne, colonne))
 				{
-					placePiece(noPiece, colonne, ligne);
+					placePiece(noPiece, ligne, colonne);
 
 					//On en place une autre
-					if (!solve(noPiece + 1))
+					if (!solve(noPiece + 1, os))
 					{
-						retirerPiece(noPiece, colonne, ligne);
+						retirerPiece(noPiece, ligne, colonne);
+					}
+					else
+					{
+						return true;
 					}
 				}
 				_pieces[noPiece]->rotate();
@@ -59,10 +65,8 @@ bool puzzle::solve(int noPiece)
 
 //Pour chaque case de la pièce, on la compare à la case de la carte
 //pour savoir si elle convient
-bool puzzle::match(int noPiece, int colonne, int ligne)
+bool puzzle::match(int noPiece, int ligne, int colonne)
 {
-	int match = 0;
-
 	for (int i = 0; i < 2; i++)
 	{
 		for (int j = 0; j < 2; j++)
@@ -70,54 +74,51 @@ bool puzzle::match(int noPiece, int colonne, int ligne)
 			//Si case valide
 			if (_pieces[noPiece]->getValide(i, j))
 			{
+				//Si vide et
+				if (colonne + j >= 4 && ligne + i >= 4)
+					return false;
+
 				//Si ours et banquise
 				if (_pieces[noPiece]->getValeur(i, j) == 'O'
-					&& _carte.getCase(ligne + i, colonne + j) == 'B')
-				{
-					match++;
-				}
+					&& _carte.getCase(ligne + i, colonne + j) != 'B')
+					return false;
 
 				//Si poisson et eau
 				if (_pieces[noPiece]->getValeur(i, j) == 'P'
-					&& _carte.getCase(ligne + i, colonne + j) == 'E')
-				{
-					match++;
-				}
+					&& _carte.getCase(ligne + i, colonne + j) != 'E')
+					return false;
 
-				//Si vide
-				if (_pieces[noPiece]->getValeur(i, j) == ' ')
-					match++;
+				//Si une piece est déjà dans l'emplacement
+				if (_solution[ligne + i][colonne + j] != " ")
+					return false;
 			}
 		}
 	}
-
-	//À refaire, trop spécifique
-	if ((_pieces[noPiece]->getNom() == 'X' || _pieces[noPiece]->getNom() == 'Y')
-		&& match == 2)
-		return true;
-
-	else if (match == 3)
-		return true;
-
-	return false;
+	return true;
 }
 
-void puzzle::placePiece(int noPiece, int colonne, int ligne)
-{
-	for (int i = 0; i < 2; i++)
-		for (int j = 0; j < 2; j++)
-			if (_pieces[noPiece]->getValide(i, j))
-
-				_solution.setCase(colonne, ligne, _pieces[noPiece]->getValeur(i, j));
-}
-
-void puzzle::retirerPiece(int noPiece, int colonne, int ligne)
+void puzzle::placePiece(int noPiece, int ligne, int colonne)
 {
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 2; j++)
 			if (_pieces[noPiece]->getValide(i, j))
 			{
-				_solution.setCase(colonne, ligne, ' ');
+				_solution[ligne + i][colonne + j].clear();
+				_solution[ligne + i][colonne + j].push_back(_pieces[noPiece]->getNom());
+				if (_pieces[noPiece]->getValeur(i, j) != ' ')
+				{
+					_solution[ligne + i][colonne + j].push_back(_pieces[noPiece]->getValeur(i, j));
+				}
+			}
+}
+
+void puzzle::retirerPiece(int noPiece, int ligne, int colonne)
+{
+	for (int i = 0; i < 2; i++)
+		for (int j = 0; j < 2; j++)
+			if (_pieces[noPiece]->getValide(i, j))
+			{
+				_solution[ligne + i][colonne + j] = " ";
 			}
 }
 
@@ -132,7 +133,19 @@ void puzzle::print(ostream &os)const
 	if (_succes)
 	{
 		os << endl << "Voici la solution : " << endl;
-		os << _solution << endl;
+
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				os << _solution[i][j];
+				if (j < 3)
+				{
+					os << ",";
+				}
+			}
+			os << endl;
+		}
 	}
 	//Sinon
 	else

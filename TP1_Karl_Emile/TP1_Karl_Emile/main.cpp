@@ -31,7 +31,7 @@ int main()
 	game.init(entree, nomNoMap);
 
 	//Résoudre la solution
-	game.play();
+	game.play(cout);
 
 	//Afficher le résultat du jeu
 	cout << game;

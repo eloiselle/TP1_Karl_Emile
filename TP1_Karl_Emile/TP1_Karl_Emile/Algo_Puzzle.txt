@@ -7,7 +7,7 @@ Pour 6 pièces (noPiece)
 			Pour 4 rotations
 				Si noPiece = 6
 					return true
-				Si match(noPiece, colones)
+				Si match(noPiece, ligne, colones)
 					placePiece(noPiece, lignes, colonnes)
 					Si (!return sollutionner(noPiece+1))
 						retirerPiece(noPiece, lignes, colonnes)
