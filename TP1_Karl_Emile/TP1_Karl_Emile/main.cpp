@@ -14,11 +14,11 @@ using namespace std;
 //Méthodes
 string ouvrirFichiers(ifstream &entree, ofstream &sortie);
 
-void main()
+int main()
 {
 	setlocale(LC_CTYPE, "fra");
 
-	Puzzle		game;		//Une partie du jeu camouflage
+	puzzle		game;		//Une partie du jeu camouflage
 
 	ifstream	entree;		//Fichier dans lequel on lit la map
 	ofstream	sortie;		//Fichier dans lequel on ecrie la solution
@@ -31,7 +31,7 @@ void main()
 	game.init(entree, nomNoMap);
 
 	//Résoudre la solution
-	game.solve();
+	game.play();
 
 	//Afficher le résultat du jeu
 	cout << game;
@@ -42,6 +42,8 @@ void main()
 	sortie.close();
 
 	system("pause");
+
+	return 0;
 }
 
 //Ouvrir les fichiers et vérifier si le fichier de lecture existe

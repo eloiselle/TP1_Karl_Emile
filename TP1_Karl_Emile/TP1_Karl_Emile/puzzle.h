@@ -11,16 +11,21 @@ But:		Classe permetant de jouer une partie du jeu camouflage.
 #include"casePiece.h"
 #include"map.h"
 
-class Puzzle
+class puzzle
 {
 private:
-	Map			_carte;			//La carte du jeu
-	Map			_solution;		//La solution de la carte
+	map			_carte;			//La carte du jeu
+	map			_solution;		//La solution de la carte
 	piece		*_pieces[6];	//Contient les pièces du jeu
+	bool		_succes;		//Détermine si une solution a été trouvé
 
 public:
 	void	init(ifstream &entree, string nomNoMap);	//Initialiser le jeu
+	void	play();										//Joue une partie de camouflage
+	bool	solve(int);									//Résoud une carte de camouflage
+	bool	match(int, int, int);						//Compare une pièce à une case
+	void	placePiece(int, int, int);
+	void	retirerPiece(int, int, int);
 	void	print(ostream &os)const;					//Affiche les messages du jeu
-	void	solve();									//Place les bonnes pièces aux bons endroits dans la carte
 };
-ostream &operator<<(ostream &os, const Puzzle &game);
+ostream &operator<<(ostream &os, const puzzle &game);

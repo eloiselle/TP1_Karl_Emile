@@ -17,7 +17,7 @@ But:		La map du jeu camouflage qu'on obtient à l'aide d'un fichier
 
 using namespace std;
 
-class Map
+class map
 {
 private:
 	char	_nom[25];	//Nom de la carte
@@ -29,12 +29,16 @@ public:
 	void	init(ifstream &in, string nomNoFichier);//Initialiser la map
 	void	print(ostream &os)const;				//Afficher la map
 	void	read(istream &entree);					//Lire une entree
-	void	setNom(string nomNoFichier);			//Obtenir le nom de la map
-	void	setCase(int i, int j, char lettreMapTemp);//Donner des valeurs aux cases
+
+	void	setCase(int i, int j, char lettreMapTemp);	//Donner des valeurs aux cases
+	void	setNom(string nomNoFichier);				//Obtenir le nom de la map
+	void	setLigne(int);
+	void	setColonne(int);
+
 	char	getCase(int i, int j)const;				//Obtenir la valeur d'une case
 	string	getNom()const;							//Obtenir le nom de la map
 	int		getLigne()const;						//Obtenir le nb de ligne
 	int		getColonne()const;						//Obtenir le nb de colonne
 };
-ostream &operator<<(ostream &os, const Map &map);
-istream &operator >> (istream &entree, Map &map);
+ostream &operator<<(ostream &os, const map &map);
+istream &operator >> (istream &entree, map &map);

@@ -1,7 +1,7 @@
 #include"map.h"
 
 //Initialiser la map
-void Map::init(ifstream &in, string nomNoFichier)
+void map::init(ifstream &in, string nomNoFichier)
 {
 	char	garbage;		//Variable temporaire pour stocker la virgule
 
@@ -17,7 +17,7 @@ void Map::init(ifstream &in, string nomNoFichier)
 }
 
 //Afficher la map
-void Map::print(ostream &os)const
+void map::print(ostream &os)const
 {
 	int	j;//Colonne a ecrire
 
@@ -32,7 +32,7 @@ void Map::print(ostream &os)const
 }
 
 //Lire une entree
-void Map::read(istream &entree)
+void map::read(istream &entree)
 {
 	for (int i = 0; i < _nbLigne; i++)	//Lire la map dans le fichier
 	{
@@ -44,7 +44,7 @@ void Map::read(istream &entree)
 }
 
 //Attribuer un nom a la map
-void Map::setNom(string nomNoFichier)
+void map::setNom(string nomNoFichier)
 {
 	for (int i = 0; i < nomNoFichier.length(); i++)
 	{
@@ -52,47 +52,57 @@ void Map::setNom(string nomNoFichier)
 	}
 }
 
-//Donner les valeurs aux cases de la map
-void Map::setCase(int i, int j, char lettreMapTemp)
+void map::setLigne(int ligne)
 {
-	assert(i >= 0 && j >= 0 && i < _nbLigne && j < _nbColonne);
+	_nbLigne = ligne;
+}
+
+void map::setColonne(int colonne)
+{
+	_nbColonne = colonne;
+}
+
+//Donner les valeurs aux cases de la map
+void map::setCase(int i, int j, char lettreMapTemp)
+{
+	assert(i >= 0 && j >= 0 && i <= _nbLigne && j <= _nbColonne);
 
 	_map[i][j] = lettreMapTemp;
 }
 
 //Obtenir la valeur d'une case
-char Map::getCase(int i, int j)const
+char map::getCase(int i, int j)const
 {
-	assert(i >= 0 && j >= 0 && i < _nbLigne && j < _nbColonne);
+	assert(i >= 0 && j >= 0 && i <= _nbLigne && j <= _nbColonne);
 
 	return _map[i][j];
 }
 
 //Obtenir le nom de la map
-string Map::getNom()const
+string map::getNom()const
 {
 	return _nom;
 }
 
 //Obtenir le nombre de ligne de la map
-int Map::getLigne()const
+int map::getLigne()const
 {
 	return _nbLigne;
 }
 
 //Obtenir le nombre de colonne de la map
-int Map::getColonne()const
+int map::getColonne()const
 {
 	return _nbColonne;
 }
 
-ostream &operator<<(ostream &os, const Map &map)
+ostream &operator<<(ostream &os, const map &map)
 {
 	map.print(os);
 	return os;
 }
 
-istream &operator >> (istream &entree, Map &map)
+istream &operator >> (istream &entree, map &map)
 {
 	map.read(entree);
 	return entree;
