@@ -1,0 +1,9 @@
+
+Pour la map suivante : 
+B B B B 
+E E E E 
+E E B B 
+B B B B 
+
+
+Aucune solution n'a été trouvé.
