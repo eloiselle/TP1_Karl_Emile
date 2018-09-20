@@ -14,18 +14,18 @@ But:		Classe permetant de jouer une partie du jeu camouflage.
 class puzzle
 {
 private:
-	map			_carte;			//La carte du jeu
-	string		_solution[4][4];		//La solution de la carte
-	piece		*_pieces[6];	//Contient les pièces du jeu
-	bool		_succes;		//Détermine si une solution a été trouvé
+	map			_carte;				//La carte du jeu
+	string		_solution[4][4];	//La solution de la carte
+	piece		*_pieces[6];		//Contient les pièces du jeu
+	bool		_succes;			//Détermine si une solution a été trouvé
 
 public:
 	void	init(ifstream &entree, string nomNoMap);	//Initialiser le jeu
-	void	play();										//Joue une partie de camouflage
-	bool	solve(int);									//Résoud une carte de camouflage
+	void	play();										//Joue une partie de "Camouflage"
+	bool	solve(int);									//Résoud une carte de "Camouflage"
 	bool	match(int, int, int);						//Compare une pièce à une case
-	void	placePiece(int, int, int);
-	void	retirerPiece(int, int, int);
+	void	placePiece(int, int, int);					//Place une pièce dans la solution
+	void	retirerPiece(int, int, int);				//Enlève une pièce de la solution
 	void	print(ostream &os)const;					//Affiche les messages du jeu
 };
 ostream &operator<<(ostream &os, const puzzle &game);

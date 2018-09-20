@@ -1,6 +1,6 @@
 #include "puzzle.h"
 
-//Initialiser le jeu
+//Initialiser les valeures du jeu
 void puzzle::init(ifstream &entree, string nomNoMap)
 {
 	_pieces[0] = new piece3Case('U', ' ', 'P', 'O', '\0');	//instance de la pièce U
@@ -13,15 +13,18 @@ void puzzle::init(ifstream &entree, string nomNoMap)
 	//Initialiser la carte
 	_carte.init(entree, nomNoMap);
 
+	//Initialiser toutes les cases de la solution
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
 		{
+			//Mettre des espaces
 			_solution[i][j] = " ";
 		}
 	}
 }
 
+//Joue une partie de "Camouflage"
 void puzzle::play()
 {
 	_succes = solve(0);
@@ -42,6 +45,7 @@ bool puzzle::solve(int noPiece)
 				//Si toutes les pièces sont placés
 				if (noPiece == 6)
 					return true;
+
 				//Si la pièce entre dans l'emplacement
 				if (match(noPiece, ligne, colonne))
 				{
@@ -63,14 +67,15 @@ bool puzzle::solve(int noPiece)
 			}
 		}
 	}
+	//Si toutes boucles ont tournés, la pièce avant celle-ci n'est pas bonne
 	return false;
 }
 
 //Pour chaque case de la pièce, on la compare à la case de la carte
 bool puzzle::match(int noPiece, int ligne, int colonne)
 {
+	//Pour chaque cases
 	for (int i = 0; i < 2; i++)
-	{
 		for (int j = 0; j < 2; j++)
 		{
 			//Si case valide
@@ -95,7 +100,6 @@ bool puzzle::match(int noPiece, int ligne, int colonne)
 					return false;
 			}
 		}
-	}
 	//Si tout est faux, la pièce peut entrer dans l'emplacement
 	return true;
 }
@@ -106,6 +110,7 @@ void puzzle::placePiece(int noPiece, int ligne, int colonne)
 	//Pour chaques cases
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 2; j++)
+
 			//Si valide
 			if (_pieces[noPiece]->getValide(i, j))
 			{
@@ -129,8 +134,10 @@ void puzzle::retirerPiece(int noPiece, int ligne, int colonne)
 	//Pour chaques cases
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 2; j++)
+
 			//Si valide
 			if (_pieces[noPiece]->getValide(i, j))
+
 				//L'emplacement est maintenant vide
 				_solution[ligne + i][colonne + j] = " ";
 }
