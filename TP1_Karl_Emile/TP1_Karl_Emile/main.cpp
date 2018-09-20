@@ -8,6 +8,7 @@ But:		Le jeu camouflage dans lequel on manipule une map
 */
 
 #include"puzzle.h"
+#include <ctime>
 
 using namespace std;
 
@@ -32,6 +33,9 @@ int main()
 		//Ouvrir le fichier s'il existe
 		nomNoMap = ouvrirFichiers(entree, sortie);
 
+		//Début du calcul du temps d'exécution
+		clock_t begin = clock();
+
 		//Initialiser le jeu
 		game.init(entree, nomNoMap);
 
@@ -42,6 +46,13 @@ int main()
 		cout << game;
 		sortie << game;
 
+		//Fin du calcul du temps d'exécution
+		clock_t end = clock();
+		//Calcul du temps d'exécution
+		double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+		//Affichage du temps d'exécution
+		cout << endl << "Temps: " << elapsed_secs << " ms" << endl;
+
 		//Fermer les fichiers
 		entree.close();
 		sortie.close();
@@ -49,22 +60,22 @@ int main()
 		while (true)
 		{
 			//Rejouer
-			cout << "Voulez-vous solutionner une autre carte?";
+			cout << "Voulez-vous solutionner une autre carte? (o/n)";
 			cin >> temp;
-			if (temp == "O")
+			cin.ignore();
+
+			if (temp == "o")
 			{
 				rejouer = true;
 				break;
 			}
-			else if (temp == "N")
+			else if (temp == "n")
 			{
 				rejouer = false;
 				break;
 			}
 		}
 	} while (rejouer);
-
-	system("pause");
 	return 0;
 }
 

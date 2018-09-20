@@ -5,7 +5,6 @@ E E E E
 E E B B 
 B B B B 
 
-
 Voici la solution : 
 W,WO,UO,U
 WP,XP,XP,UP

@@ -82,7 +82,7 @@ bool puzzle::match(int noPiece, int ligne, int colonne)
 			if (_pieces[noPiece]->siValide(i, j))
 			{
 				//Si la case de la pièce est dans la carte
-				if (colonne + j >= 4 && ligne + i >= 4)
+				if (colonne + j >= 4 || ligne + i >= 4)
 					return false;
 
 				//Si ours est sur autre chose que banquise
@@ -154,7 +154,7 @@ void puzzle::print(ostream &os)const
 	//Si solution trouvée
 	if (_succes)
 	{
-		os << endl << "Voici la solution : " << endl;
+		os << "Voici la solution : " << endl;
 
 		//Affiche chaques cases de la solution
 		for (int i = 0; i < 4; i++)

@@ -5,7 +5,6 @@ E I B E
 E B I B 
 B B B B 
 
-
 Voici la solution : 
 XP,XP,YO,YP
 WP,W,VO,VP
