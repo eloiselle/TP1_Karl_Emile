@@ -21,8 +21,8 @@ private:
 
 public:
 	void	init(ifstream &entree, string nomNoMap);	//Initialiser le jeu
-	void	play(ostream&);										//Joue une partie de camouflage
-	bool	solve(int, ostream&);									//Résoud une carte de camouflage
+	void	play();										//Joue une partie de camouflage
+	bool	solve(int);									//Résoud une carte de camouflage
 	bool	match(int, int, int);						//Compare une pièce à une case
 	void	placePiece(int, int, int);
 	void	retirerPiece(int, int, int);

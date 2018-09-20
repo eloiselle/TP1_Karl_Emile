@@ -22,12 +22,12 @@ void puzzle::init(ifstream &entree, string nomNoMap)
 	}
 }
 
-void puzzle::play(ostream& os)
+void puzzle::play()
 {
-	_succes = solve(0, os);
+	_succes = solve(0);
 }
 
-bool puzzle::solve(int noPiece, ostream& os)
+bool puzzle::solve(int noPiece)
 {
 	//Chaques lignes
 	for (int ligne = 0; ligne < _carte.getLigne(); ligne++)
@@ -47,7 +47,7 @@ bool puzzle::solve(int noPiece, ostream& os)
 					placePiece(noPiece, ligne, colonne);
 
 					//On en place une autre
-					if (!solve(noPiece + 1, os))
+					if (!solve(noPiece + 1))
 					{
 						retirerPiece(noPiece, ligne, colonne);
 					}
