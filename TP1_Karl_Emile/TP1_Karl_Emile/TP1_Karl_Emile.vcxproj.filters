@@ -43,9 +43,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="mapExpert25.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
     <Text Include="mapExpert26.txt">
       <Filter>Resource Files\Maps</Filter>
     </Text>
@@ -70,35 +67,8 @@
     <Text Include="mapMaster48.txt">
       <Filter>Resource Files\Maps</Filter>
     </Text>
-    <Text Include="solutionexpert25.txt">
+    <Text Include="mapSansSolution.txt">
       <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionExpert26.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionExpert27.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionExpert35.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionJunior17.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionJunior18.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionmaster37.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionMaster38.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="solutionMaster48.txt">
-      <Filter>Resource Files\Maps</Filter>
-    </Text>
-    <Text Include="Algo_Puzzle.txt">
-      <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{38CFACEE-020C-4CAD-B77A-96268720CA2C}</ProjectGuid>
     <RootNamespace>TP1KarlEmile</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -126,7 +126,6 @@
     <ClInclude Include="puzzle.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="mapExpert25.txt" />
     <Text Include="mapExpert26.txt" />
     <Text Include="mapExpert27.txt" />
     <Text Include="mapExpert35.txt" />
@@ -135,16 +134,7 @@
     <Text Include="mapMaster37.txt" />
     <Text Include="mapMaster38.txt" />
     <Text Include="mapMaster48.txt" />
-    <Text Include="solutionexpert25.txt" />
-    <Text Include="solutionExpert26.txt" />
-    <Text Include="solutionExpert27.txt" />
-    <Text Include="solutionExpert35.txt" />
-    <Text Include="solutionJunior17.txt" />
-    <Text Include="solutionJunior18.txt" />
-    <Text Include="solutionmaster37.txt" />
-    <Text Include="solutionMaster38.txt" />
-    <Text Include="solutionMaster48.txt" />
-    <Text Include="Algo_Puzzle.txt" />
+    <Text Include="mapSansSolution.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

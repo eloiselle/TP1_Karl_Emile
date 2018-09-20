@@ -1,7 +1,0 @@
-
-Pour la map suivante : 
-E B E B 
-B B E E 
-E E E B 
-B B B E 
-
