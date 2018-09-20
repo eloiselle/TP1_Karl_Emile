@@ -12,7 +12,9 @@ But:		Permet de manipuler des pièces 3 cases et 2 cases avec des
 
 #include "casePiece.h"
 
-/*                   Parent                     */
+/*----------
+---Parent---
+----------*/
 
 //Initialise la piece avec les valeures spécifiés
 void piece::init(char nom, char case1, char case2, char case3, char case4)
@@ -58,14 +60,14 @@ char piece::getValeur(int i, int j) const
 }
 
 //Vérifie si la case spécifiée contient les charactères demandés
-bool piece::getValide(int i, int j) const
+bool piece::siValide(int i, int j) const
 {
 	assert((i == 0 || i == 1) && (j == 0 || j == 1));
 
 	return _cases[i][j].active;
 }
 
-//Affiche le nom et lea valeure d'une piece (S'il y a une valeure)
+//Affiche le nom et lea valeure d'une piece
 void piece::print(ostream& os)const
 {
 	for (int i = 0; i < 2; i++)
@@ -94,7 +96,9 @@ ostream& operator<<(ostream& os, const piece& p)
 	return os;
 }
 
-/*               Piece deux cases               */
+/*--------------------
+---Pièce deux cases---
+--------------------*/
 
 //Constructeur vide mais lisible
 piece2Case::piece2Case()
@@ -146,7 +150,9 @@ void piece2Case::rotate()
 	}
 }
 
-/*               Piece trois cases              */
+/*---------------------
+---Pièce trois cases---
+-----------------------*/
 
 //Constructeur vide mais lisible
 piece3Case::piece3Case()
