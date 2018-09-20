@@ -60,7 +60,7 @@ char piece::getValeur(int i, int j) const
 }
 
 //Vérifie si la case spécifiée contient les charactères demandés
-bool piece::getValide(int i, int j) const
+bool piece::siValide(int i, int j) const
 {
 	assert((i == 0 || i == 1) && (j == 0 || j == 1));
 

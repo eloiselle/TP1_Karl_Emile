@@ -44,7 +44,7 @@ public:
 	//Getteurs
 	char getNom()const;
 	char getValeur(int, int)const;
-	bool getValide(int, int)const;
+	bool siValide(int, int)const;
 
 	//Rotation d'une piece, se réfère aux fonctions dans les enfants
 	virtual void rotate() {};

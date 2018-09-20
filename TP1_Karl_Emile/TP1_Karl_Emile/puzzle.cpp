@@ -13,7 +13,7 @@ void puzzle::init(ifstream &entree, string nomNoMap)
 	//Initialiser la carte
 	_carte.init(entree, nomNoMap);
 
-	//Initialiser toutes les cases de la solution
+	//Initialiser le tableau de la solution
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -79,7 +79,7 @@ bool puzzle::match(int noPiece, int ligne, int colonne)
 		for (int j = 0; j < 2; j++)
 		{
 			//Si case valide
-			if (_pieces[noPiece]->getValide(i, j))
+			if (_pieces[noPiece]->siValide(i, j))
 			{
 				//Si la case de la pièce est dans la carte
 				if (colonne + j >= 4 && ligne + i >= 4)
@@ -112,7 +112,7 @@ void puzzle::placePiece(int noPiece, int ligne, int colonne)
 		for (int j = 0; j < 2; j++)
 
 			//Si valide
-			if (_pieces[noPiece]->getValide(i, j))
+			if (_pieces[noPiece]->siValide(i, j))
 			{
 				//Efface le contenu de la case de la carte
 				_solution[ligne + i][colonne + j].clear();
@@ -138,7 +138,7 @@ void puzzle::retirerPiece(int noPiece, int ligne, int colonne)
 		for (int j = 0; j < 2; j++)
 
 			//Si valide
-			if (_pieces[noPiece]->getValide(i, j))
+			if (_pieces[noPiece]->siValide(i, j))
 
 				//L'emplacement est maintenant vide
 				_solution[ligne + i][colonne + j] = " ";

@@ -18,31 +18,53 @@ int main()
 {
 	setlocale(LC_CTYPE, "fra");
 
+	string temp;
+	bool rejouer;
+
 	puzzle		game;		//Une partie du jeu camouflage
 
 	ifstream	entree;		//Fichier dans lequel on lit la map
 	ofstream	sortie;		//Fichier dans lequel on ecrie la solution
 	string		nomNoMap;	//Nom fichier de la carte
 
-	//Ouvrir le fichier s'il existe
-	nomNoMap = ouvrirFichiers(entree, sortie);
+	do
+	{
+		//Ouvrir le fichier s'il existe
+		nomNoMap = ouvrirFichiers(entree, sortie);
 
-	//Initialiser le jeu
-	game.init(entree, nomNoMap);
+		//Initialiser le jeu
+		game.init(entree, nomNoMap);
 
-	//Résoudre la solution
-	game.play();
+		//Résoudre la solution
+		game.play();
 
-	//Afficher le résultat du jeu
-	cout << game;
-	sortie << game;
+		//Afficher le résultat du jeu
+		cout << game;
+		sortie << game;
 
-	//Fermer les fichiers
-	entree.close();
-	sortie.close();
+		//Fermer les fichiers
+		entree.close();
+		sortie.close();
+
+		while (true)
+		{
+			//Rejouer
+			cout << "Voulez-vous solutionner une autre carte?";
+			cin >> temp;
+			if (temp == "O")
+			{
+				rejouer = true;
+				break;
+			}
+			else if (temp == "N")
+			{
+				rejouer = false;
+				break;
+			}
+		}
+	} while (rejouer);
 
 	system("pause");
-
 	return 0;
 }
 
