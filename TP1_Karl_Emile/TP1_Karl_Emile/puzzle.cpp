@@ -22,12 +22,13 @@ void puzzle::init(ifstream &entree, string nomNoMap)
 	}
 }
 
-void puzzle::play(ostream& os)
+void puzzle::play()
 {
-	_succes = solve(0, os);
+	_succes = solve(0);
 }
 
-bool puzzle::solve(int noPiece, ostream& os)
+//Résouds une carte de "Camouflage" avec une pièce de départ
+bool puzzle::solve(int noPiece)
 {
 	//Chaques lignes
 	for (int ligne = 0; ligne < _carte.getLigne(); ligne++)
@@ -44,18 +45,20 @@ bool puzzle::solve(int noPiece, ostream& os)
 				//Si la pièce entre dans l'emplacement
 				if (match(noPiece, ligne, colonne))
 				{
+					//Place la pièce dans solution
 					placePiece(noPiece, ligne, colonne);
 
-					//On en place une autre
-					if (!solve(noPiece + 1, os))
-					{
+					//On place une autre pièce
+					if (!solve(noPiece + 1))
+
+						//On la retire et on passe à une autre
 						retirerPiece(noPiece, ligne, colonne);
-					}
+
+					//La solution a étée trouvée
 					else
-					{
 						return true;
-					}
 				}
+				//Effectue la rotation d'une pièce
 				_pieces[noPiece]->rotate();
 			}
 		}
@@ -64,7 +67,6 @@ bool puzzle::solve(int noPiece, ostream& os)
 }
 
 //Pour chaque case de la pièce, on la compare à la case de la carte
-//pour savoir si elle convient
 bool puzzle::match(int noPiece, int ligne, int colonne)
 {
 	for (int i = 0; i < 2; i++)
@@ -74,52 +76,63 @@ bool puzzle::match(int noPiece, int ligne, int colonne)
 			//Si case valide
 			if (_pieces[noPiece]->getValide(i, j))
 			{
-				//Si vide et
+				//Si la case de la pièce est dans la carte
 				if (colonne + j >= 4 && ligne + i >= 4)
 					return false;
 
-				//Si ours et banquise
+				//Si ours est sur autre chose que banquise
 				if (_pieces[noPiece]->getValeur(i, j) == 'O'
 					&& _carte.getCase(ligne + i, colonne + j) != 'B')
 					return false;
 
-				//Si poisson et eau
+				//Si poisson est sur autre chose que eau
 				if (_pieces[noPiece]->getValeur(i, j) == 'P'
 					&& _carte.getCase(ligne + i, colonne + j) != 'E')
 					return false;
 
-				//Si une piece est déjà dans l'emplacement
+				//Si une autre piece est déjà dans l'emplacement
 				if (_solution[ligne + i][colonne + j] != " ")
 					return false;
 			}
 		}
 	}
+	//Si tout est faux, la pièce peut entrer dans l'emplacement
 	return true;
 }
 
+//Placer une pièce dans la solution
 void puzzle::placePiece(int noPiece, int ligne, int colonne)
 {
+	//Pour chaques cases
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 2; j++)
+			//Si valide
 			if (_pieces[noPiece]->getValide(i, j))
 			{
+				//Efface le contenu de la case de la carte
 				_solution[ligne + i][colonne + j].clear();
+
+				//Ajoute le nom de la pièce
 				_solution[ligne + i][colonne + j].push_back(_pieces[noPiece]->getNom());
+
+				//Si la valeure de la pièce n'est pas vide
 				if (_pieces[noPiece]->getValeur(i, j) != ' ')
-				{
+
+					//On ajoute la valeure dans le tableau
 					_solution[ligne + i][colonne + j].push_back(_pieces[noPiece]->getValeur(i, j));
-				}
 			}
 }
 
+//Retirer une pièce de la solution
 void puzzle::retirerPiece(int noPiece, int ligne, int colonne)
 {
+	//Pour chaques cases
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 2; j++)
+			//Si valide
 			if (_pieces[noPiece]->getValide(i, j))
-			{
+				//L'emplacement est maintenant vide
 				_solution[ligne + i][colonne + j] = " ";
-			}
 }
 
 //Affiche les messages du jeu
@@ -134,6 +147,7 @@ void puzzle::print(ostream &os)const
 	{
 		os << endl << "Voici la solution : " << endl;
 
+		//Affiche chaques cases de la solution
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
