@@ -58,7 +58,7 @@ bool puzzle::solve(int noPiece)
 						//On la retire et on passe à une autre
 						retirerPiece(noPiece, ligne, colonne);
 
-					//La solution a étée trouvée
+					//La solution a été trouvée
 					else
 						return true;
 				}
@@ -118,13 +118,15 @@ void puzzle::placePiece(int noPiece, int ligne, int colonne)
 				_solution[ligne + i][colonne + j].clear();
 
 				//Ajoute le nom de la pièce
-				_solution[ligne + i][colonne + j].push_back(_pieces[noPiece]->getNom());
+				_solution[ligne + i][colonne + j].push_back
+				(_pieces[noPiece]->getNom());
 
 				//Si la valeure de la pièce n'est pas vide
 				if (_pieces[noPiece]->getValeur(i, j) != ' ')
 
 					//On ajoute la valeure dans le tableau
-					_solution[ligne + i][colonne + j].push_back(_pieces[noPiece]->getValeur(i, j));
+					_solution[ligne + i][colonne + j].push_back
+					(_pieces[noPiece]->getValeur(i, j));
 			}
 }
 

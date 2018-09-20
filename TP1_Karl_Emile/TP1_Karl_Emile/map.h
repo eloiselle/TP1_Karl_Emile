@@ -21,19 +21,19 @@ class map
 {
 private:
 	char	_nom[25];	//Nom de la carte
-	char	_map[4][4];	//Le tableau de la carte
-	int		_nbLigne;	//Nombre de ligne lu dans le fichier
-	int		_nbColonne;	//Nombre de colonne lu dans le fichier
+	char	_map[4][4];	//Tableau de la carte
+	int		_nbLigne;	//Nombre de ligne du tableau
+	int		_nbColonne;	//Nombre de colonne du tableau
 
 public:
 	void	init(ifstream &in, string nomNoFichier);//Initialiser la map
 	void	print(ostream &os)const;				//Afficher la map
 	void	read(istream &entree);					//Lire une entree
 
-	void	setCase(int i, int j, char lettreMapTemp);	//Donner des valeurs aux cases
-	void	setNom(string nomNoFichier);				//Obtenir le nom de la map
-	void	setLigne(int);
-	void	setColonne(int);
+	void	setCase(int i, int j, char lettreMapTemp);	//Changer la valeur d'une case
+	void	setNom(string nomNoFichier);				//Changer le nom de la map
+	void	setLigne(int);								//Changer le nb de ligne
+	void	setColonne(int);							//Changer le nb de colonne
 
 	char	getCase(int i, int j)const;				//Obtenir la valeur d'une case
 	string	getNom()const;							//Obtenir le nom de la map

@@ -4,7 +4,7 @@ Programme:	puzzle.h
 Date:		2018-09-15
 But:		Classe permetant de jouer une partie du jeu camouflage.
 			Elle initialise le jeu pour ensuite trouver une solution
-			a la carte choisie.
+			à la carte choisie.
 */
 
 #pragma once
@@ -20,12 +20,18 @@ private:
 	bool		_succes;			//Détermine si une solution a été trouvé
 
 public:
-	void	init(ifstream &entree, string nomNoMap);	//Initialiser le jeu
-	void	play();										//Joue une partie de "Camouflage"
-	bool	solve(int);									//Résoud une carte de "Camouflage"
-	bool	match(int, int, int);						//Compare une pièce à une case
-	void	placePiece(int, int, int);					//Place une pièce dans la solution
-	void	retirerPiece(int, int, int);				//Enlève une pièce de la solution
-	void	print(ostream &os)const;					//Affiche les messages du jeu
+	//Initialiser le jeu
+	void	init(ifstream &entree, string nomNoMap);
+
+	void	play();					//Joue une partie de "Camouflage"
+	bool	solve(int);				//Résoud une carte de "Camouflage"
+	bool	match(int, int, int);	//Compare une pièce à une case
+
+	//Place ou enlève une pièce dans la solution
+	void	placePiece(int, int, int);
+	void	retirerPiece(int, int, int);
+
+	//Affiche les messages du jeu
+	void	print(ostream &os)const;
 };
 ostream &operator<<(ostream &os, const puzzle &game);

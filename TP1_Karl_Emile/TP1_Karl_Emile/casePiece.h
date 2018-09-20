@@ -17,11 +17,11 @@ But:		Permet de manipuler des pièces 3 cases et 2 cases avec des
 
 using namespace std;
 
-//Structure permettant de manipuler les pieces avec aise
+//Structure permettant de manipuler les pieces
 struct casePiece
 {
-	char valeur;
-	bool active;
+	char valeur;	//Valeure contenur dans une case
+	bool active;	//Détermine si la case doit être évaluée
 };
 
 //Objet piece parent
@@ -49,7 +49,7 @@ public:
 	//Rotation d'une piece, se réfère aux fonctions dans les enfants
 	virtual void rotate() {};
 
-	//Afficheur
+	//Affichage
 	void print(ostream& os)const;
 };
 ostream& operator<<(ostream&, const piece&);

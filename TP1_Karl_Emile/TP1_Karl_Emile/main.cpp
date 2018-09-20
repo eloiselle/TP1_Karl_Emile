@@ -51,14 +51,16 @@ string ouvrirFichiers(ifstream &entree, ofstream &sortie)
 {
 	string fichierEntree;
 
-	while (true)	//Boucle tant que le fichier n'est pas bon
+	//Boucle tant que le fichier n'est pas bon
+	while (true)
 	{
 		cout << "Entrer la map a solutionner <Ex : Expert27> : ";
 		getline(cin, fichierEntree);
 
 		entree.open("map" + fichierEntree + ".txt");
 
-		if (entree.good())	//Si le fichier s'est ouvert, on sort de la boucle
+		//Si le fichier s'est ouvert, on sort de la boucle
+		if (entree.good())
 			break;
 
 		cout << endl << "Le fichier map" << fichierEntree;
